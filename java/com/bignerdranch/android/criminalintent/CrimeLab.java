@@ -102,5 +102,11 @@ public class CrimeLab {
 
         return values;
     }
-    
+
+    public void deleteCrime(Crime crime) {
+        String uuidString = crime.getId().toString();
+
+        mDatabase.delete(CrimeTable.NAME, CrimeTable.Columns.UUID + " = ?", new String[] { uuidString });
+    }
+
 }
